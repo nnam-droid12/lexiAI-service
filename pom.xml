@@ -127,11 +127,6 @@
 			<version>1.31.0</version>
 		</dependency>
 
-		<dependency>
-			<groupId>com.azure.spring</groupId>
-			<artifactId>spring-cloud-azure-appconfiguration-config</artifactId>
-			<version>5.8.0</version>
-		</dependency>
 
 
 		<dependency>

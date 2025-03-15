@@ -13,6 +13,8 @@ import java.io.ByteArrayInputStream;
 import java.io.ByteArrayOutputStream;
 import java.io.IOException;
 import java.io.InputStream;
+import java.util.HashMap;
+import java.util.Map;
 
 @Service
 public class DocumentStorageService {
@@ -27,7 +29,7 @@ public class DocumentStorageService {
                 .buildClient();
     }
 
-    public String uploadFile(MultipartFile file) throws IOException {
+    public Map<String, String> uploadFile(MultipartFile file) throws IOException {
         String fileName = file.getOriginalFilename();
         BlobClient blobClient = containerClient.getBlobClient(fileName);
 
@@ -36,10 +38,12 @@ public class DocumentStorageService {
             blobClient.setHttpHeaders(new BlobHttpHeaders().setContentType(file.getContentType()));
         }
 
+        Map<String, String> response = new HashMap<>();
+        response.put("fileName", fileName);
+        response.put("fileUrl", blobClient.getBlobUrl());
 
-        return blobClient.getBlobUrl();
+        return response;
     }
-
 
 
     public void deleteFile(String fileName) {

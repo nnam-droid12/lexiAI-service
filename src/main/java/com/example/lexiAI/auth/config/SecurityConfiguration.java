@@ -43,8 +43,7 @@ public class SecurityConfiguration {
                                 "/v3/api-docs/**"
                         ).permitAll()
                         .requestMatchers("/api/v1/auth/**",  "/api/v1/forgot-password/**", "/file/**").permitAll()
-                        .requestMatchers("/api/v1/document/**", "/api/v1/googleOauth/**").permitAll()
-                        .requestMatchers("/api/v1/webhook/**", "/api/v1/agreements/**").authenticated()
+                        .requestMatchers("/api/v1/document/**", "/api/v1/speech/**").authenticated()
                         .requestMatchers("/api/v1/navigator/**", "/api/v1/agreements/calendar/**").authenticated()
                 ).sessionManagement(session -> session
                         .sessionCreationPolicy(SessionCreationPolicy.STATELESS))

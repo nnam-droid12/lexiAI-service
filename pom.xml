@@ -29,6 +29,19 @@
 	<properties>
 		<java.version>17</java.version>
 	</properties>
+
+	<dependencyManagement>
+		<dependencies>
+			<dependency>
+				<groupId>com.azure</groupId>
+				<artifactId>azure-sdk-bom</artifactId>
+				<version>1.2.15</version>  <!-- Use the latest BOM version -->
+				<type>pom</type>
+				<scope>import</scope>
+			</dependency>
+		</dependencies>
+	</dependencyManagement>
+
 	<dependencies>
 		<dependency>
 			<groupId>org.springframework.boot</groupId>
@@ -99,15 +112,28 @@
 
 		<dependency>
 			<groupId>com.azure</groupId>
-			<artifactId>azure-storage-blob</artifactId>
-			<version>12.23.0</version>
+			<artifactId>azure-ai-formrecognizer</artifactId>
 		</dependency>
 
 		<dependency>
 			<groupId>com.azure</groupId>
-			<artifactId>azure-ai-formrecognizer</artifactId>
-			<version>4.1.13</version>
+			<artifactId>azure-storage-blob</artifactId>
 		</dependency>
+
+
+		<dependency>
+			<groupId>com.microsoft.cognitiveservices.speech</groupId>
+			<artifactId>client-sdk</artifactId>
+			<version>1.31.0</version>
+		</dependency>
+
+
+		<dependency>
+			<groupId>org.springframework.boot</groupId>
+			<artifactId>spring-boot-starter-webflux</artifactId>
+		</dependency>
+
+
 
 
 		<dependency>

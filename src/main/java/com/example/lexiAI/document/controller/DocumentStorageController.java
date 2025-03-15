@@ -12,6 +12,7 @@ import org.springframework.web.bind.annotation.*;
 
 import java.io.IOException;
 import java.io.InputStream;
+import java.util.Map;
 
 @RestController
 @RequestMapping("/api/v1/document")
@@ -25,12 +26,11 @@ public class DocumentStorageController {
 
 
     @PostMapping("/upload")
-    public ResponseEntity<String> uploadFile(@RequestParam("file") MultipartFile file) {
+    public ResponseEntity<Map<String, String>> uploadFile(@RequestParam("file") MultipartFile file) {
         try {
-            String fileUrl = documentStorageService.uploadFile(file);
-            return ResponseEntity.ok("File uploaded successfully: " + fileUrl);
-        } catch (IOException e) {
-            return ResponseEntity.status(HttpStatus.INTERNAL_SERVER_ERROR).body("File upload failed: " + e.getMessage());
+            return ResponseEntity.ok(documentStorageService.uploadFile(file));
+        } catch (Exception e) {
+            return ResponseEntity.badRequest().body(Map.of("error", e.getMessage()));
         }
     }
 

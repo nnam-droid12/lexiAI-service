@@ -1,0 +1,67 @@
+spring:
+datasource:
+  url:
+  username:
+  password:
+  driver-class-name: org.postgresql.Driver
+
+jpa:
+  database-platform: org.hibernate.dialect.PostgreSQLDialect
+  hibernate:
+    ddl-auto: update
+  show-sql: true
+
+
+servlet:
+  multipart:
+    max-file-size: 10MB
+    max-request-size: 10MB
+    file-size-threshold: 2000KB
+    enabled: true
+
+mail:
+  host: smtp.gmail.com
+  port: 587
+  username: techandrewwilliam@gmail.com
+  password: kxrd hizk yfry meiy
+  properties:
+    mail:
+      smtp:
+        auth: true
+        starttls:
+          enable: true
+
+
+
+
+jwt:
+  key:
+
+server:
+  port: 8080
+
+
+azure:
+  storage:
+    connection-string:
+    container-name:
+  speech:
+    api-key:
+    region:
+
+  document-intelligence:
+    endpoint:
+    api-key:
+
+  translation:
+    endpoint:
+    api-key:
+    region:
+
+
+
+speech:
+  supported:
+    languages: en,es,fr,ja,zh,hi
+    voices: en-US-JennyNeural,es-ES-ElviraNeural,fr-FR-DeniseNeural,ja-JP-NanamiNeural,zh-CN-XiaoxiaoNeural,hi-IN-SwaraNeural
+
